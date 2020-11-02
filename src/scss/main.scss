@@ -1,0 +1,19 @@
+@import "./variables";
+// Import full Spectre source code
+@import "node_modules/spectre.css/src/spectre";
+
+
+// *,
+// *::before,
+// *::after {
+//   outline: 1px dotted #E98585;  
+// }
+body {
+  background-color: $bg-color;
+}
+ul {
+  list-style: none;
+}
+.flag {
+  width: 400px;
+}

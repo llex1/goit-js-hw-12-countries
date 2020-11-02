@@ -1,0 +1,18 @@
+<div class="column col-8">
+  <h2 class="title text-center text-uppercase">{{name}}</h2>
+  <div class="columns">
+    <div class="column col-6">
+      <div><h4 class="subtitle d-inline-block">Capital: </h4><span class="mx-2">{{capital}}</span></div>
+      <div><h4 class="subtitle d-inline-block">Population: </h4><span class="mx-2">{{population}}</span></div>
+      <h4 class="subtitle">Languages: </h4>
+      <ul>
+        {{#each languages}}
+            <li>{{this.name}}</li>
+        {{/each}}
+      </ul>
+    </div>
+    <div class="column col-6">
+      <img class="flag" src="{{flag}}" alt="">
+    </div>
+  </div>
+</div>
