@@ -23,14 +23,8 @@ dom.dataIn.addEventListener(
       //   return json;
       // })
       .then((json) => {
-        console.log(json.length);
-        console.log(json);
-        json.forEach(el => {
-          console.log(el.name, el.capital, el.population, el.languages, el.flag);
-        });
         if (json.length === 1) {
           let [ el1 ] = json;
-          console.log(el1);
           dom.dataOut.innerHTML = hbs_countryInfo(el1);
         } else if(json.length >1 && json.length<=10) {
           dom.dataOut.innerHTML = hbs_countryList(json);
