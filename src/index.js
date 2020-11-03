@@ -2,6 +2,9 @@ import css from "./scss/main.scss";
 import hbs_countryList from "./templates/country-list.hbs";
 import hbs_countryInfo from "./templates/country-info.hbs";
 import {debounce} from 'lodash';
+// import * as pnotify from '@pnotify/core';
+// import '@pnotify/core/dist/BrightTheme.css';
+
 
 
 const dom = {
@@ -17,11 +20,6 @@ dom.dataIn.addEventListener(
    debounce((e)=> { 
     fetch(`https://restcountries.eu/rest/v2/name/${e.target.value}`)
       .then((data) => data.json())
-      // .then((json) => {
-
-
-      //   return json;
-      // })
       .then((json) => {
         if (json.length === 1) {
           let [ el1 ] = json;

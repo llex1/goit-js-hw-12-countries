@@ -1,19 +1,28 @@
 @import "./variables";
-// Import full Spectre source code
-@import "node_modules/spectre.css/src/spectre";
+//* Import full Bootstrap source code
+@import "node_modules/bootstrap/scss/bootstrap";
 
 
-// *,
-// *::before,
-// *::after {
-//   outline: 1px dotted #E98585;  
-// }
+*,
+*::before,
+*::after {
+  // outline: 1px dotted $indigo;
+}
 body {
   background-color: $bg-color;
 }
-ul {
-  list-style: none;
+
+#data-out {
+  @include row-cols(1);
+  @include media-breakpoint-up(lg) {
+    @include row-cols(2);
+  }
 }
 .flag {
-  width: 400px;
+  width: 100%;
+}
+@media screen and (min-width: 576px) {
+  .flag {
+    width: 400px;
+  }
 }

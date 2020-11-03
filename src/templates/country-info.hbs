@@ -1,18 +1,17 @@
-<div class="column col-8">
-  <h2 class="title text-center text-uppercase">{{name}}</h2>
-  <div class="columns">
-    <div class="column col-6">
-      <div><h4 class="subtitle d-inline-block">Capital: </h4><span class="mx-2">{{capital}}</span></div>
-      <div><h4 class="subtitle d-inline-block">Population: </h4><span class="mx-2">{{population}}</span></div>
-      <h4 class="subtitle">Languages: </h4>
+<div class="col-lg-6">
+  <h2 class="text-uppercase text-center">{{name}}</h2>
+  <ul class="list-unstyled">
+    <li><span class="font-weight-bold">Capital: </span>{{capital}}</li>
+    <li><span class="font-weight-bold">Population: </span>{{population}}</li>
+    <li><span class="font-weight-bold">Languages: </span>
       <ul>
-        {{#each languages}}
-            <li>{{this.name}}</li>
-        {{/each}}
+      {{#each languages}}
+          <li>{{this.name}}</li>
+      {{/each}}
       </ul>
-    </div>
-    <div class="column col-6">
-      <img class="flag" src="{{flag}}" alt="">
-    </div>
-  </div>
+    </li>
+  </ul>
+</div>
+<div class="col-lg-6">
+  <img class="flag" src="{{flag}}" alt="">
 </div>
