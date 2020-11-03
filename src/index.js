@@ -1,9 +1,10 @@
 import css from "./scss/main.scss";
 import hbs_countryList from "./templates/country-list.hbs";
 import hbs_countryInfo from "./templates/country-info.hbs";
-import {debounce} from 'lodash';
+import {debounce} from "lodash";
+import fetchCountries from "./js/fetchCountries.js";
+
 import {notice} from "../node_modules/@pnotify/core/dist/PNotify.js";
-import * as PNotifyDesktop from "../node_modules/@pnotify/desktop/dist/PNotifyDesktop.js";
 import "../node_modules/@pnotify/core/dist/PNotify.css";
 import '@pnotify/core/dist/BrightTheme.css';
 
@@ -12,6 +13,8 @@ const dom = {
   dataIn: document.querySelector('#data-in'),
   dataOut: document.querySelector('#data-out')
 }
+const API = 'https://restcountries.eu/rest/v2/name/';
+
 
 dom.dataIn.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -19,7 +22,7 @@ dom.dataIn.addEventListener('submit', (e) => {
 dom.dataIn.addEventListener(
   'input', 
    debounce((e)=> { 
-    fetch(`https://restcountries.eu/rest/v2/name/${e.target.value}`)
+     fetchCountries(`${API}${e.target.value}`)
       .then((data) => data.json())
       .then((json) => {
         if (json.length > 10) {
