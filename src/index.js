@@ -26,6 +26,12 @@ window.onload = function() {
 dom.dataIn.addEventListener('submit', (e) => {
   e.preventDefault();
 })
+const clearCountryList = function() {
+  if(document.querySelector('div[country-list-block]')) {
+    document.querySelector('div[country-list-block]').remove();
+  }
+}
+
 const debounceExpression = debounce(function(e){ 
   fetchCountries(`${API}${e.target.value}`)
     .then((data) => data.json())
@@ -39,6 +45,7 @@ const debounceExpression = debounce(function(e){
         dom.dataOut.innerHTML = hbs_countryInfo(el1);
         dom.spinner.classList.add('d-none');
       } else if(json.length >1 && json.length<=10) {
+        clearCountryList();
         dom.dataOut.insertAdjacentHTML('afterbegin',hbs_countryList(json));
         dom.spinner.classList.add('d-none');
         const userChoice = function(event) {
@@ -65,11 +72,13 @@ dom.dataIn.addEventListener(
       debounceExpression(e);
     } else {
       dom.spinner.classList.add('d-none');
+      clearCountryList();
     }
   }
 );
 dom.resetData.addEventListener('click', function(e){
   e.preventDefault();
+  clearCountryList();
   dom.dataIn.value = '';
   dom.dataOut.innerHTML = '';
   window.localStorage.clear();
