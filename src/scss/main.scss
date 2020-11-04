@@ -26,3 +26,10 @@ body {
     width: 400px;
   }
 }
+ul[country-list] {
+  top: -16px;
+  left: 0;
+  li:hover {
+    cursor: pointer;
+  }
+}

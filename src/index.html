@@ -13,11 +13,21 @@
 
   <div class="row">
     <form class="form-group col-lg-6" action="">
-      <label class="text-muted" for="data-in">Назва країни:</label>
-      <input class="form-control" id="data-in" type="text" placeholder="..." onkeydown="if(event.keyCode==13){return false;}">
+      <label class="text-muted mr-1" for="data-in">Назва країни:</label>
+      <span class="spinner-grow spinner-grow-sm text-success d-none" id="spinner"></span>
+      <div class="input-group">
+        <input class="form-control" id="data-in" type="text" placeholder="..." onkeydown="if(event.keyCode==13){return false;}">
+        <div class="input-group-append">
+          <button class="btn btn-primary" id="reset-data">очистити пошук</button>
+        </div>
+      </div> 
     </form>
   </div>
-  <div class="row" id="data-out">
+  <div class="row position-relative" id="data-out">
+
+
+    
+
   </div>
 
 </div>
